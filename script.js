@@ -135,12 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function showMonthlySummary() {
   const totalSpent = transactions.reduce((sum, t) => sum + t.amount, 0);
   const savings = income - totalSpent;
-
-  alert(`Monthly Summary:
-    Total Income: ${localStorage.getItem('currency') || '₹'}${income.toFixed(2)}
-    Total Spent: ${localStorage.getItem('currency') || '₹'}${totalSpent.toFixed(2)}
-    Savings: ${localStorage.getItem('currency') || '₹'}${savings.toFixed(2)}
-  `);
 }
 
 
