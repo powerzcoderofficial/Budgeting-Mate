@@ -114,10 +114,27 @@ function deleteTransaction(index) {
   updateSummary(selectedCurrency);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const currentMonth = new Date().getMonth();
+  const lastVisitedMonth = parseInt(localStorage.getItem('lastVisitedMonth'), 10);
+
+  if (lastVisitedMonth === undefined || lastVisitedMonth !== currentMonth) {
+
+    localStorage.setItem('lastVisitedMonth', currentMonth);
+    resetMonthlyData();
+  }
+
+
   updateDisplay(localStorage.getItem('currency') || '₹');
   updateTransactions(localStorage.getItem('currency') || '₹');
   updateSummary(localStorage.getItem('currency') || '₹');
 });
+
+function resetMonthlyData() {
+  transactions = [];
+  localStorage.setItem('transactions', JSON.stringify(transactions));
+}
+
 
 document.getElementById('clear-data').addEventListener('click', () => {
   if (confirm('Are you sure you want to clear all data?')) {
