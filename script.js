@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (lastVisitedMonth === undefined || lastVisitedMonth !== currentMonth) {
 
+    showMonthlySummary();
     localStorage.setItem('lastVisitedMonth', currentMonth);
     resetMonthlyData();
   }
@@ -129,6 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTransactions(localStorage.getItem('currency') || '₹');
   updateSummary(localStorage.getItem('currency') || '₹');
 });
+
+
+function showMonthlySummary() {
+  const totalSpent = transactions.reduce((sum, t) => sum + t.amount, 0);
+  const savings = income - totalSpent;
+
+  alert(`Monthly Summary:
+    Total Income: ${localStorage.getItem('currency') || '₹'}${income.toFixed(2)}
+    Total Spent: ${localStorage.getItem('currency') || '₹'}${totalSpent.toFixed(2)}
+    Savings: ${localStorage.getItem('currency') || '₹'}${savings.toFixed(2)}
+  `);
+}
+
 
 function resetMonthlyData() {
   transactions = [];
