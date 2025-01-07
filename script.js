@@ -114,41 +114,10 @@ function deleteTransaction(index) {
   updateSummary(selectedCurrency);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const currentMonth = new Date().getMonth();
-  const lastVisitedMonth = parseInt(localStorage.getItem('lastVisitedMonth'), 10);
-
-  if (lastVisitedMonth === undefined || lastVisitedMonth !== currentMonth) {
-
-    showMonthlySummary();
-    localStorage.setItem('lastVisitedMonth', currentMonth);
-    resetMonthlyData();
-  }
-
-
   updateDisplay(localStorage.getItem('currency') || '₹');
   updateTransactions(localStorage.getItem('currency') || '₹');
   updateSummary(localStorage.getItem('currency') || '₹');
 });
-
-
-function showMonthlySummary() {
-  const totalSpent = transactions.reduce((sum, t) => sum + t.amount, 0);
-  const savings = income - totalSpent;
-
-  alert(`Monthly Summary:
-    Total Income: ${localStorage.getItem('currency') || '₹'}${income.toFixed(2)}
-    Total Spent: ${localStorage.getItem('currency') || '₹'}${totalSpent.toFixed(2)}
-    Savings: ${localStorage.getItem('currency') || '₹'}${savings.toFixed(2)}
-  `);
-}
-
-
-function resetMonthlyData() {
-  transactions = [];
-  localStorage.setItem('transactions', JSON.stringify(transactions));
-}
-
 
 document.getElementById('clear-data').addEventListener('click', () => {
   if (confirm('Are you sure you want to clear all data?')) {
