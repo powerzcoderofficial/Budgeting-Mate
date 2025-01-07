@@ -1,5 +1,5 @@
-# Expense-Tracker
-## Progject - #1
+# Moneys-Mate
+## Proget - #1
 
 This is a simple yet useful Expense-Tracker which can be used to track your monthly expenses.
 
