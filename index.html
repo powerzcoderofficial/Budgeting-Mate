@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Tracker</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="left-section">
+
+                <div id="currency-section">
+                    <label for="currency-select">Select Currency:</label>
+                    <select id="currency-select"></select>
+                </div>
+
+
+                <div id="income-section">
+                    <p id="income-display"></p>
+                    <input type="number" id="income-input" placeholder="Set or Update Income" />
+                    <button id="set-income">Set/Update Income</button>
+                </div>
+
+
+                <section id="transaction-section">
+                    <h2>Add Transaction</h2>
+                    <input type="text" id="description-input" placeholder="Description" />
+                    <input type="number" id="amount-input" placeholder="Amount" />
+                    <input type="date" id="date-input" />
+                    <button id="add-transaction">Add Transaction</button>
+                </section>
+            </div>
+
+            <div class="right-section">
+
+                <section id="transactions-list">
+                    <h2>Transactions</h2>
+                    <div id="transactions-container"></div>
+                </section>
+            </div>
+        </div>
+
+
+        <section id="summary-section-parent">
+            <section id="summary-section">
+                <h2>Monthly Summary</h2>
+                <p id="summary"></p>
+            </section>
+        </section>
+
+        <section id="clear-dat">
+            <button id="clear-data">Clear all Data</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+    <footer>©Powerz All Rights Reserved.</footer>
+</body>
+
+</html>

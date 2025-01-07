@@ -1,0 +1,294 @@
+@font-face {
+    font-family: EB;
+    src: url('eb.ttf');
+}
+
+@font-face {
+    font-family: EBH;
+    src: url('ebh.ttf');
+}
+
+
+body {
+    font-family: EB, sans-serif;
+    background-color: #eefae7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-family: EBH;
+    font-size: 36px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+.left-section {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.right-section {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(217, 255, 226);
+    border-radius: 5px;
+}
+
+#transactions-list h2 {
+    margin-left: 36%;
+}
+
+
+#summary-section {
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#summary-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#summary {
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+
+#currency-section {
+    width: 100%;
+}
+
+#currency-section label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#currency-select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+
+#income-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#income-display {
+    font-family: EBH;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#income-input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+#set-income {
+    font-family: EB;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#set-income:hover {
+    background-color: #45a049;
+}
+
+
+#transaction-section {
+    width: 100%;
+}
+
+#transaction-section h2 {
+    font-family: EBH;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#transaction-section input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+#add-transaction {
+    font-family: EB;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-transaction:hover {
+    background-color: #45a049;
+}
+
+
+#transactions-list {
+    width: 100%;
+}
+
+#transactions-list h2 {
+    font-family: EBH;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#summary-section {
+    font-family: EBH;
+    background-color: #d1ffd3;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#summary-section-parent {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#transactions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 29rem;
+    overflow-y: auto;
+}
+
+
+.transaction-card {
+    background-color: #bbfdaf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-card button {
+    font-family: EB;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#clear-dat {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1%;
+}
+
+#clear-data {
+    font-family: EB;
+    padding: 12px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 220px;
+    transition: background-color 0.3s ease;
+}
+
+#clear-data:hover {
+    background-color: #d32f2f;
+}
+
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+    }
+
+    #currency-select,
+    #income-input,
+    #set-income,
+    #description-input,
+    #amount-input,
+    #date-input,
+    #add-transaction {
+        width: 100%;
+        font-family: EB;
+    }
+}
+
+footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #297238;
+    color: white;
+    font-size: 10pt;
+    height: 2rem;
+}
