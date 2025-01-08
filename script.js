@@ -2,22 +2,34 @@
 let income = parseFloat(localStorage.getItem('income')) || 0;
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-fetch('currencies.php')
+fetch('currencies.json')
   .then(response => response.json())
-  .then(data => {
-    if (data.symbols) {
-      const currencySelect = document.getElementById('currency-select');
-      Object.entries(data.symbols).forEach(([code, details]) => {
-        const option = document.createElement('option');
-        option.value = code;
-        option.textContent = `${code} (${details.description})`;
-        currencySelect.appendChild(option);
-      });
-    } else {
-      console.error('Error fetching currencies:', data.error);
-    }
+  .then(currencies => {
+    const currencySelect = document.getElementById('currency-select');
+
+
+    currencies.forEach(currency => {
+      const option = document.createElement('option');
+      option.value = currency.symbol;
+      option.textContent = `${currency.code} (${currency.symbol}) - ${currency.name}`;
+      currencySelect.appendChild(option);
+    });
+
+
+    const savedCurrency = localStorage.getItem('currency') || '₹';
+    currencySelect.value = savedCurrency;
+
+
+    currencySelect.addEventListener('change', () => {
+      const selectedCurrency = currencySelect.value;
+      localStorage.setItem('currency', selectedCurrency);
+      updateDisplay(selectedCurrency);
+    });
+
+
+    updateDisplay(savedCurrency);
   })
-  .catch(error => console.error('Fetch error:', error));
+  .catch(error => console.error('Error loading currencies:', error));
 
 
 function updateDisplay(currency) {
