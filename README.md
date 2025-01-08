@@ -1,4 +1,4 @@
-# Moneys-Mate
+# Budgeting-Mate
 ## Proget - #1
 
 This is a simple yet useful Expense-Tracker which can be used to track your monthly expenses.
@@ -11,4 +11,4 @@ Step 3: see the monthly summary to see your expenditure and savings.
 
 ### Domain
 
-This has been published to the web with the domain named: https://moneys-mate.netlify.app
+This has been published to the web with the domain named: https://budgeting-mate.netlify.app
