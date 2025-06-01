@@ -1,67 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <title>URL Temporarily Changed</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budgeting Mate</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #181c24 0%, #232b39 70%, #0f2027 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Montserrat', Arial, sans-serif;
+            position: relative;
+        }
+
+        .glow {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow:
+                0 0 10px #00c3ff,
+                0 0 20px #00c3ff,
+                0 0 40px #fff,
+                0 0 80px #00c3ff;
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff, 0 0 40px #fff, 0 0 80px #00c3ff;}
+            50% { opacity: 0.8; text-shadow: 0 0 20px #fff, 0 0 40px #00c3ff, 0 0 80px #fff;}
+            100% { opacity: 1; text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff, 0 0 40px #fff, 0 0 80px #00c3ff;}
+        }
+
+        .card {
+            background: rgba(24,28,36,0.92);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.18);
+            padding: 2.5rem 3rem;
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info {
+            color: #dbeafe;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 8px #000a;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8em 2em;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #00c3ff 0%, #3a7bd5 100%);
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 24px #00c3ff55;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 32px #3a7bd5cc;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 24px #00c3ff55; }
+            100% { box-shadow: 0 8px 32px #3a7bd5cc; }
+        }
+
+        /* Animated background shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.18;
+            filter: blur(36px);
+            z-index: 0;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+        .shape1 { width: 400px; height: 400px; background: #00c3ff; top: -100px; left: -120px; animation-delay: 0s;}
+        .shape2 { width: 300px; height: 300px; background: #3a7bd5; bottom: -80px; right: -100px; animation-delay: 2s;}
+        .shape3 { width: 200px; height: 200px; background: #fff; top: 60%; left: 60%; animation-delay: 4s;}
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1);}
+            100% { transform: translateY(-40px) scale(1.1);}
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <h1>Budgeting Mate</h1>
-        </header>
-
-        <div class="main-content">
-            <div class="left-section">
-
-                <div id="currency-section">
-                    <label for="currency-select">Select Currency:</label>
-                    <select id="currency-select"></select>
-                </div>
-
-
-                <div id="income-section">
-                    <p id="income-display"></p>
-                    <input type="number" id="income-input" placeholder="Set or Update Income" />
-                    <button id="set-income">Set/Update Income</button>
-                </div>
-
-
-                <section id="transaction-section">
-                    <h2>Add Transaction</h2>
-                    <input type="text" id="description-input" placeholder="Description" />
-                    <input type="number" id="amount-input" placeholder="Amount" />
-                    <input type="date" id="date-input" />
-                    <button id="add-transaction">Add Transaction</button>
-                </section>
-            </div>
-
-            <div class="right-section">
-
-                <section id="transactions-list">
-                    <h2>Transactions</h2>
-                    <div id="transactions-container"></div>
-                </section>
-            </div>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="card">
+        <div class="glow">🚧 URL Changed! 🚧</div>
+        <div class="info">
+            The URL of this webpage has <b>temporarily changed</b>.<br>
+            Please update your bookmark or follow the link below.
         </div>
-
-
-        <section id="summary-section-parent">
-            <section id="summary-section">
-                <h2>Monthly Summary</h2>
-                <p id="summary"></p>
-            </section>
-        </section>
-
-        <section id="clear-dat">
-            <button id="clear-data">Clear all Data</button>
-        </section>
+        <a href="#" class="btn">Go to New URL</a>
     </div>
-    <script src="script.js"></script>
-    <footer>© <script>document.write(new Date().getFullYear())</script> &nbsp Powerz All Rights Reserved.</footer>
 </body>
-
 </html>
